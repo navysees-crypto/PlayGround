@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#101611" />
+  <link rel="icon" href="data:," />
+  <title>OVER THE TOP — Trench Defense</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main id="game-shell">
+    <canvas id="game" aria-label="Trench defense 3D game"></canvas>
+    <div id="vignette"></div>
+    <div id="grain"></div>
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">✣</span><span>FIELD POST <b>09</b></span></div>
+      <div id="wave-badge"><i></i> <span>SECTOR 4 · HOLD THE LINE</span></div>
+      <button id="sound-btn" class="icon-btn" aria-label="Toggle sound">♫</button>
+    </header>
+    <section class="hud" id="hud" aria-live="polite">
+      <div class="hud-block left-hud"><small>DEFENDERS</small><div class="lives" id="lives"></div><div class="hud-caption" id="integrity-label">LINE INTACT</div></div>
+      <div class="center-hud"><div class="wave-label">WAVE <span id="wave">01</span></div><div class="wave-progress"><span id="progress"></span></div><div class="objective" id="objective">ENEMIES INBOUND</div></div>
+      <div class="hud-block right-hud"><small>CONFIRMED</small><div class="score" id="score">0000</div><div class="hud-caption">KILLS</div></div>
+    </section>
+    <div id="hitmarker" aria-hidden="true">✣</div>
+    <div id="crosshair" aria-hidden="true"><i></i><i></i><i></i><i></i><b></b></div>
+    <div id="ammo-panel"><div class="ammo-label">MG-08 <span>·</span> 7.92MM</div><div class="ammo-count"><span id="ammo">30</span><em>/ 120</em></div><div class="ammo-track"><span id="ammo-fill"></span></div></div>
+    <div id="reload-note">RELOADING <span>•••</span></div>
+    <div class="desktop-hints"><kbd>A</kbd><kbd>D</kbd><span>MOVE ALONG TRENCH</span><kbd>SPACE</kbd><span>FIRE</span><kbd>R</kbd><span>RELOAD</span><kbd>RMB</kbd><span>AIM</span></div>
+    <nav id="touch-controls" aria-label="Touch controls">
+      <div class="move-pad"><button id="move-left" class="touch-btn move-btn" aria-label="Move left">‹</button><button id="move-right" class="touch-btn move-btn" aria-label="Move right">›</button><span>TRAVERSE</span></div>
+      <div class="action-pad"><button id="aim-btn" class="touch-btn aim-btn" aria-label="Aim down sights"><span class="aim-icon">⊙</span><small>AIM</small></button><button id="fire-btn" class="touch-btn fire-btn" aria-label="Fire machine gun"><span class="fire-icon">✣</span><small>FIRE</small></button><button id="reload-btn" class="touch-btn reload-btn" aria-label="Reload">↻<small>RELOAD</small></button></div>
+    </nav>
+    <div id="message" class="message"></div>
+    <section id="title-screen" class="screen visible">
+      <div class="title-card"><div class="eyebrow"><span></span> WESTERN FRONT · 1916</div><h1>OVER<br><i>THE</i> TOP</h1><div class="title-rule"><span></span> TRENCH DEFENSE <span></span></div><p>They’re crossing no man’s land.<br><b>Hold your ground. Hold the line.</b></p><button id="start-btn" class="primary-btn">TAKE YOUR POST <span>→</span></button><div class="card-foot"><span>MG-08 · 30 ROUNDS</span><span>∞ WAVES</span></div></div>
+      <div class="title-side-note">FIELD MANUAL<br>PLATE IV — DEFENSE</div>
+    </section>
+    <section id="end-screen" class="screen">
+      <div class="title-card end-card"><div class="eyebrow"><span></span> POSITION OVERRUN</div><h2>THE LINE<br><i>HAS FALLEN</i></h2><p>You held through <b id="final-wave">1</b> wave and confirmed <b id="final-kills">0</b> targets.</p><button id="again-btn" class="primary-btn">RETURN TO THE LINE <span>↻</span></button><div class="card-foot"><span>FIELD POST 09</span><span>AFTER ACTION REPORT</span></div></div>
+    </section>
+    <div id="toast" aria-live="polite"></div>
+  </main>
+  <script type="module" src="game.js"></script>
+</body>
+</html>
